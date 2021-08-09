@@ -13,20 +13,20 @@ CREATE TABLE Postnummer (
 );
 
 CREATE TABLE Adresse (
-	AdresseID int PRIMARY KEY,
+	AdresseID int IDENTITY(1,1) PRIMARY KEY,
 	Postnummer int FOREIGN KEY REFERENCES Postnummer(Postnummer),
-	VejNavn varchar(75),
+	VejNavn varchar(75), 
 	Vejnummer varchar(75)
 );
 
 CREATE TABLE Butikker (
-	ButikID int PRIMARY KEY,
+	ButikID int IDENTITY(1,1) PRIMARY KEY,
 	Navn varchar(30),
 	AdresseID int FOREIGN KEY REFERENCES Adresse(AdresseID),
 );
 
 CREATE TABLE Kunder (
-	KundeID int PRIMARY KEY,
+	KundeID int IDENTITY(1,1) PRIMARY KEY,
 	Fornavn varchar(45),
 	Efternavn varchar(45),
 	Mobil int,
@@ -35,14 +35,15 @@ CREATE TABLE Kunder (
 );
 
 CREATE TABLE MyOrdre (
- OrderID int PRIMARY KEY,
+ OrderID int IDENTITY(1,1) PRIMARY KEY,
  KundeID int FOREIGN KEY REFERENCES Kunder(KundeID),
  ButikID int FOREIGN KEY REFERENCES Butikker(ButikID),
+ OpretDate DATETIME DEFAULT GETDATE()
 );
 
 
 CREATE TABLE Afdelinger (
-	AfdelingerID int PRIMARY KEY,
+	AfdelingerID int IDENTITY(1,1) PRIMARY KEY,
 	Navn varchar(46),
 );
 
@@ -60,24 +61,30 @@ CREATE TABLE Medarbejdere (
 
 
 
-
-
-
 CREATE TABLE ProduktOrder (
-	ProduktOrderID int PRIMARY KEY,
+	ProduktOrderID int IDENTITY(1,1) PRIMARY KEY,
 	OrderID int FOREIGN KEY REFERENCES MyOrdre(OrderID),
+	ProduktID int FOREIGN KEY REFERENCES Produkt(ProduktID),
+	Antal int,
+	Príse int
 );
 
 
 CREATE TABLE Lager (
-	LagerID int PRIMARY KEY,
+	LagerID int IDENTITY(1,1) PRIMARY KEY,
 	#ProduktID int FOREIGN KEY REFERENCES 
 	Antal int,
 );
 CREATE TABLE Produkt (
-	ProduktID int PRIMARY KEY,
+	ProduktID int IDENTITY(1,1) PRIMARY KEY,
 	ProduktNavn varchar(75),
 	Prise int,
+);
+CREATE TABLE Levering (
+	LeveringID int IDENTITY(1,1) PRIMARY KEY,
+	OrderID int FOREIGN KEY REFERENCES MyOrdre(OrderID),
+	AdresseID int FOREIGN KEY REFERENCES Adresse(AdresseID),
+	SendDato DATETIME
 );
 
 CREATE TABLE Lager_has_butikker (

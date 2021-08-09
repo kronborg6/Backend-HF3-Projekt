@@ -4,5 +4,6 @@ namespace KronborgsSHopCL
 {
     public class Class1
     {
+        
     }
 }
