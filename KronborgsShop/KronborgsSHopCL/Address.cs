@@ -6,7 +6,15 @@ using System.Threading.Tasks;
 
 namespace KronborgsSHopCL
 {
-    class Address
+    public class Address
     {
+        public int AddressID { get; set; }
+        public string StreetName { get; set; }
+        public string StreetNumber { get; set; }
+
+        public Address()
+        {
+
+        }
     }
 }

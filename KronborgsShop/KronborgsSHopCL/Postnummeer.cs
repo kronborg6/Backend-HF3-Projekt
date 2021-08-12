@@ -6,10 +6,9 @@ using System.Threading.Tasks;
 
 namespace KronborgsSHopCL
 {
-    public class Product
+    public class Postnummeer
     {
-        public int ProductID { get; set; }
-        public string Name { get; set; }
-
+        public int Postnummer { get; set; }
+        public string City { get; set; }
     }
 }

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using KronborgsSHopCL;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -6,7 +7,8 @@ using System.Threading.Tasks;
 
 namespace KronborgsShopORM
 {
-    interface IORM
+    public interface IORM
     {
+        public List<Member> GetMembers();
     }
 }
