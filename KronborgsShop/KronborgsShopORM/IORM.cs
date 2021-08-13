@@ -10,5 +10,16 @@ namespace KronborgsShopORM
     public interface IORM
     {
         public List<Member> GetMembers();
+        public Member GetMember();
+        public List<Address> GetAddresses();
+        public Address GetAddress();
+        public List<Product> GetProducts();
+        public Product GetProduct();
+        public List<Postnummer> GetPostnummers();
+        public Postnummer GetPostnummer(int id);
+        public List<Order> GetOrders();
+        public Order GetOrder();
+        //public 
+
     }
 }

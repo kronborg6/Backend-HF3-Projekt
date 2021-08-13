@@ -130,6 +130,16 @@
             "rid": "win"
           }
         }
+      },
+      "KronborgsSHopCL/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v5.0",
+        "compile": {
+          "bin/placeholder/KronborgsSHopCL.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/KronborgsSHopCL.dll": {}
+        }
       }
     }
   },
@@ -446,10 +456,16 @@
         "useSharedDesignerContext.txt",
         "version.txt"
       ]
+    },
+    "KronborgsSHopCL/1.0.0": {
+      "type": "project",
+      "path": "../KronborgsSHopCL/KronborgsSHopCL.csproj",
+      "msbuildProject": "../KronborgsSHopCL/KronborgsSHopCL.csproj"
     }
   },
   "projectFileDependencyGroups": {
     "net5.0": [
+      "KronborgsSHopCL >= 1.0.0",
       "System.Data.SqlClient >= 4.8.2"
     ]
   },
@@ -484,7 +500,11 @@
       "frameworks": {
         "net5.0": {
           "targetAlias": "net5.0",
-          "projectReferences": {}
+          "projectReferences": {
+            "C:\\Users\\mkron\\OneDrive\\Dokumenter\\Rpoes\\HF3\\Backend-HF3-Projekt\\KronborgsShop\\KronborgsSHopCL\\KronborgsSHopCL.csproj": {
+              "projectPath": "C:\\Users\\mkron\\OneDrive\\Dokumenter\\Rpoes\\HF3\\Backend-HF3-Projekt\\KronborgsShop\\KronborgsSHopCL\\KronborgsSHopCL.csproj"
+            }
+          }
         }
       },
       "warningProperties": {

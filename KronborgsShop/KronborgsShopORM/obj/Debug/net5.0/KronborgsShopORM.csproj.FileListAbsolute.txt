@@ -1,0 +1,15 @@
+C:\Users\mkron\OneDrive\Dokumenter\Rpoes\HF3\Backend-HF3-Projekt\KronborgsShop\KronborgsShopORM\bin\Debug\net5.0\KronborgsSHopCL.dll
+C:\Users\mkron\OneDrive\Dokumenter\Rpoes\HF3\Backend-HF3-Projekt\KronborgsShop\KronborgsShopORM\obj\Debug\net5.0\KronborgsShopORM.csprojAssemblyReference.cache
+C:\Users\mkron\OneDrive\Dokumenter\Rpoes\HF3\Backend-HF3-Projekt\KronborgsShop\KronborgsShopORM\obj\Debug\net5.0\KronborgsShopORM.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\mkron\OneDrive\Dokumenter\Rpoes\HF3\Backend-HF3-Projekt\KronborgsShop\KronborgsShopORM\obj\Debug\net5.0\KronborgsShopORM.AssemblyInfoInputs.cache
+C:\Users\mkron\OneDrive\Dokumenter\Rpoes\HF3\Backend-HF3-Projekt\KronborgsShop\KronborgsShopORM\obj\Debug\net5.0\KronborgsShopORM.AssemblyInfo.cs
+C:\Users\mkron\OneDrive\Dokumenter\Rpoes\HF3\Backend-HF3-Projekt\KronborgsShop\KronborgsShopORM\bin\Debug\net5.0\KronborgsShopORM.deps.json
+C:\Users\mkron\OneDrive\Dokumenter\Rpoes\HF3\Backend-HF3-Projekt\KronborgsShop\KronborgsShopORM\bin\Debug\net5.0\KronborgsShopORM.dll
+C:\Users\mkron\OneDrive\Dokumenter\Rpoes\HF3\Backend-HF3-Projekt\KronborgsShop\KronborgsShopORM\bin\Debug\net5.0\ref\KronborgsShopORM.dll
+C:\Users\mkron\OneDrive\Dokumenter\Rpoes\HF3\Backend-HF3-Projekt\KronborgsShop\KronborgsShopORM\bin\Debug\net5.0\KronborgsShopORM.pdb
+C:\Users\mkron\OneDrive\Dokumenter\Rpoes\HF3\Backend-HF3-Projekt\KronborgsShop\KronborgsShopORM\bin\Debug\net5.0\KronborgsSHopCL.pdb
+C:\Users\mkron\OneDrive\Dokumenter\Rpoes\HF3\Backend-HF3-Projekt\KronborgsShop\KronborgsShopORM\obj\Debug\net5.0\KronborgsShopORM.csproj.CoreCompileInputs.cache
+C:\Users\mkron\OneDrive\Dokumenter\Rpoes\HF3\Backend-HF3-Projekt\KronborgsShop\KronborgsShopORM\obj\Debug\net5.0\KronborgsShopORM.csproj.CopyComplete
+C:\Users\mkron\OneDrive\Dokumenter\Rpoes\HF3\Backend-HF3-Projekt\KronborgsShop\KronborgsShopORM\obj\Debug\net5.0\KronborgsShopORM.dll
+C:\Users\mkron\OneDrive\Dokumenter\Rpoes\HF3\Backend-HF3-Projekt\KronborgsShop\KronborgsShopORM\obj\Debug\net5.0\ref\KronborgsShopORM.dll
+C:\Users\mkron\OneDrive\Dokumenter\Rpoes\HF3\Backend-HF3-Projekt\KronborgsShop\KronborgsShopORM\obj\Debug\net5.0\KronborgsShopORM.pdb
