@@ -7,7 +7,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "KronborgsSHopCL", "Kronborg
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "KronborgsShopORM", "KronborgsShopORM\KronborgsShopORM.csproj", "{0F1411F0-4C97-480A-AB80-FFBE80489E64}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KronborgsShopTestC", "KronborgsShopTestC\KronborgsShopTestC.csproj", "{F4262D6B-4143-448D-B6D4-A01327D4E5D1}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "KronborgsShopTestC", "KronborgsShopTestC\KronborgsShopTestC.csproj", "{F4262D6B-4143-448D-B6D4-A01327D4E5D1}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KronborgsShopAPI", "KronborgsShopAPI\KronborgsShopAPI.csproj", "{AA3617F5-BF2B-4FFE-98F6-1134E3CA1235}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -27,6 +29,10 @@ Global
 		{F4262D6B-4143-448D-B6D4-A01327D4E5D1}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F4262D6B-4143-448D-B6D4-A01327D4E5D1}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F4262D6B-4143-448D-B6D4-A01327D4E5D1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AA3617F5-BF2B-4FFE-98F6-1134E3CA1235}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AA3617F5-BF2B-4FFE-98F6-1134E3CA1235}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AA3617F5-BF2B-4FFE-98F6-1134E3CA1235}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AA3617F5-BF2B-4FFE-98F6-1134E3CA1235}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

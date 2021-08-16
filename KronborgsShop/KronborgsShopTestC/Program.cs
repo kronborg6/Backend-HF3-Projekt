@@ -1,6 +1,7 @@
 ﻿using KronborgsSHopCL;
 using KronborgsShopORM;
 using System;
+using System.Collections.Generic;
 
 namespace KronborgsShopTestC
 {
@@ -13,6 +14,15 @@ namespace KronborgsShopTestC
             //customers = ORM.GetCustomers();
             Console.WriteLine(cust1.PostnummerID + ": " + cust1.City);
             Console.WriteLine("\n");
+
+            List<Postnummer> postnummers = new List<Postnummer>();
+            postnummers = ORM.GetPostnummers();
+
+            foreach (Postnummer postnummer in postnummers)
+            {
+                Console.WriteLine(postnummer.PostnummerID + ": " + postnummer.City);
+            }
+
         }
     }
 }

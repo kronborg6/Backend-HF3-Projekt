@@ -10,10 +10,13 @@ namespace KronborgsSHopCL
     {
         public int PostnummerID { get; set; }
         public string City { get; set; }
-        public Postnummer(int ID, string City)
+        public Postnummer() : this(0)
+        {
+
+        }
+        public Postnummer(int ID)
         {
             this.PostnummerID = ID;
-            this.City = City;
         }
     }
 }
