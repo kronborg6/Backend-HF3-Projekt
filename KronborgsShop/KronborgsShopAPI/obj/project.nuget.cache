@@ -1,8 +1,15 @@
 {
   "version": 2,
-  "dgSpecHash": "yq7nXkheM1jldSob2OmrQ8wT8CxYAvv30Q6ffG+nZMtVjkkNYK2OcwmzsZ9p2KMGQkZLHT6BdQAgEA4RnF6HsA==",
+  "dgSpecHash": "xb3ssxSr7vpUFV9akUxIsGEWpTaQTLi87YXQcyt9gfuqsswNA5GC70Fslxy0ZD8IWqNxIWVpevn9K7kbTCvwOg==",
   "success": true,
   "projectFilePath": "C:\\Users\\mkron\\OneDrive\\Dokumenter\\Rpoes\\HF3\\Backend-HF3-Projekt\\KronborgsShop\\KronborgsShopAPI\\KronborgsShopAPI.csproj",
-  "expectedPackageFiles": [],
+  "expectedPackageFiles": [
+    "C:\\Users\\mkron\\.nuget\\packages\\microsoft.extensions.apidescription.server\\3.0.0\\microsoft.extensions.apidescription.server.3.0.0.nupkg.sha512",
+    "C:\\Users\\mkron\\.nuget\\packages\\microsoft.openapi\\1.2.3\\microsoft.openapi.1.2.3.nupkg.sha512",
+    "C:\\Users\\mkron\\.nuget\\packages\\swashbuckle.aspnetcore\\5.6.3\\swashbuckle.aspnetcore.5.6.3.nupkg.sha512",
+    "C:\\Users\\mkron\\.nuget\\packages\\swashbuckle.aspnetcore.swagger\\5.6.3\\swashbuckle.aspnetcore.swagger.5.6.3.nupkg.sha512",
+    "C:\\Users\\mkron\\.nuget\\packages\\swashbuckle.aspnetcore.swaggergen\\5.6.3\\swashbuckle.aspnetcore.swaggergen.5.6.3.nupkg.sha512",
+    "C:\\Users\\mkron\\.nuget\\packages\\swashbuckle.aspnetcore.swaggerui\\5.6.3\\swashbuckle.aspnetcore.swaggerui.5.6.3.nupkg.sha512"
+  ],
   "logs": []
 }
