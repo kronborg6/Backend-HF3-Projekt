@@ -28,9 +28,46 @@ namespace KronborgsShopORM
 
             dbConn = new SqlConnection(conString.ToString());
         }
-        public Address GetAddress()
+
+
+        public List<Address> GetAddress()
         {
-            throw new NotImplementedException();
+            List<Address> addresses = new List<Address>();
+
+
+            string query = "SELECT Postnummer, Bynavn FROM Postnummer WHERE Postnummer = @val";
+            SqlCommand cmd = new SqlCommand(query, dbConn);
+            //cmd.Parameters.AddWithValue("@val", id);
+
+            if (dbConn.State == System.Data.ConnectionState.Closed)
+            {
+                try
+                {
+                    // open database connection
+                    dbConn.Open();
+                }
+                catch (Exception ex)
+                {
+                    throw new Exception(ex.Message);
+                }
+
+                SqlDataReader reader = cmd.ExecuteReader(System.Data.CommandBehavior.CloseConnection);
+                int i = 0;
+                while (reader.Read())
+                {
+                    addresses.Add(new Address(Convert.ToInt32(reader["Postnummer"]))
+                    {
+                        StreetName = reader["Bynavn"].ToString(),
+                        StreetNumber = reader["Bynavn"].ToString()
+                    });
+                    i++;
+                }
+                dbConn.Close();
+                reader.Close();
+                if (i != 1) return null;
+            }
+
+            return addresses;
         }
 
         public Address GetAddress(int id)
@@ -73,22 +110,126 @@ namespace KronborgsShopORM
 
         public List<Address> GetAddresses()
         {
-            throw new NotImplementedException();
+            List<Address> addresses = new List<Address>();
+
+
+            string query = "SELECT Postnummer, Bynavn FROM Postnummer WHERE Postnummer = @val";
+            SqlCommand cmd = new SqlCommand(query, dbConn);
+            //cmd.Parameters.AddWithValue("@val", id);
+
+            if (dbConn.State == System.Data.ConnectionState.Closed)
+            {
+                try
+                {
+                    // open database connection
+                    dbConn.Open();
+                }
+                catch (Exception ex)
+                {
+                    throw new Exception(ex.Message);
+                }
+
+                SqlDataReader reader = cmd.ExecuteReader(System.Data.CommandBehavior.CloseConnection);
+                int i = 0;
+                while (reader.Read())
+                {
+                    addresses.Add(new Address(Convert.ToInt32(reader["Postnummer"]))
+                    {
+                        StreetName = reader["Bynavn"].ToString(),
+                        StreetNumber = reader["Bynavn"].ToString()
+                    });
+                    i++;
+                }
+                dbConn.Close();
+                reader.Close();
+                if (i != 1) return null;
+            }
+
+            return addresses;
         }
 
-        public Member GetMember()
-        {
-            throw new NotImplementedException();
-        }
 
         public Member GetMember(int id)
         {
-            throw new NotImplementedException();
+            Member member = null;
+
+            string query = "SELECT KundeID, Fornavn, Efternavn, Mobil, Email FROM Kunder WHERE KundeID = @val";
+            SqlCommand cmd = new SqlCommand(query, dbConn);
+            cmd.Parameters.AddWithValue("@val", id);
+
+            if (dbConn.State == System.Data.ConnectionState.Closed)
+            {
+                try
+                {
+                    // open database connection
+                    dbConn.Open();
+                }
+                catch (Exception ex)
+                {
+                    throw new Exception(ex.Message);
+                }
+
+                SqlDataReader reader = cmd.ExecuteReader(System.Data.CommandBehavior.CloseConnection);
+                int i = 0;
+                while (reader.Read())
+                {
+                    member = new Member(Convert.ToInt32(reader["KundeID"]))
+                    {
+                        Fristname = reader["Fornavn"].ToString(),
+                        Lastname = reader["Efternavn"].ToString(),
+                        Email = reader["Email"].ToString(),
+                        Mobil = Convert.ToInt32(reader["Mobil"])
+                    };
+                    i++;
+                }
+                dbConn.Close();
+                reader.Close();
+                if (i != 1) return null;
+            }
+
+            return member;
         }
 
         public List<Member> GetMembers()
         {
-            throw new NotImplementedException();
+            List<Member> members = new List<Member>();
+
+
+            string query = "SELECT KundeID, Fornavn, Efternavn, Mobil, Email FROM Kunder";
+            SqlCommand cmd = new SqlCommand(query, dbConn);
+            //cmd.Parameters.AddWithValue("@val", id);
+
+            if (dbConn.State == System.Data.ConnectionState.Closed)
+            {
+                try
+                {
+                    // open database connection
+                    dbConn.Open();
+                }
+                catch (Exception ex)
+                {
+                    throw new Exception(ex.Message);
+                }
+
+                SqlDataReader reader = cmd.ExecuteReader(System.Data.CommandBehavior.CloseConnection);
+                int i = 0;
+                while (reader.Read())
+                {
+                    members.Add(new Member(Convert.ToInt32(reader["KundeID"]))
+                    {
+                        Fristname = reader["Fornavn"].ToString(),
+                        Lastname = reader["Efternavn"].ToString(),
+                        Email = reader["Email"].ToString(),
+                        Mobil = Convert.ToInt32(reader["Mobil"])
+                    });
+                    i++;
+                }
+                dbConn.Close();
+                reader.Close();
+                if (i != 1) return null;
+            }
+
+            return members;
         }
 
         public Order GetOrder()
@@ -248,10 +389,34 @@ namespace KronborgsShopORM
                 }
                 dbConn.Close();
                 reader.Close();
-                if (i != 1) return null;
+                //if (i != 1) return null;
             }
 
             return products;
+        }
+        public Product CreateProduct(Product product)
+        {
+            string query = "INSERT INTO Produkt (ProduktNavn, Prise) VALUES (@val1, @val2); SELECT SCOPE_IDENTITY() AS id;";
+            SqlCommand cmd = new SqlCommand(query, dbConn);
+            cmd.Parameters.AddWithValue("@val1", product.Name);
+            cmd.Parameters.AddWithValue("@val2", product.Price);
+
+            if (dbConn.State == System.Data.ConnectionState.Closed)
+            {
+                try
+                {
+                    dbConn.Open();
+                }
+                catch (Exception ex)
+                {
+                    throw new Exception(ex.Message);
+                }
+            }
+
+            product.SetProductID(Convert.ToInt32(cmd.ExecuteScalar()));
+            dbConn.Close();
+
+            return product;
         }
     }
 }

@@ -11,9 +11,13 @@ namespace KronborgsSHopCL
         public int Mobil { get; set; }
         public string Email { get; set; }
         public List<Address> Addres { get; set; }
-        public Member()
+        public Member() : this(0)
         {
 
+        }
+        public Member(int ID)
+        {
+            this.MemberID = ID;
         }
     }
 }
