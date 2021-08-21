@@ -12,6 +12,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
+
+using Microsoft.AspNetCore.Authentication;
+using KronborgsShopAPI.Middleware;
+
 namespace KronborgsShopAPI
 {
     public class Startup
@@ -32,6 +36,9 @@ namespace KronborgsShopAPI
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "KronborgsShopAPI", Version = "v1" });
             });
+            // configure basic authentication 
+
+            // configure DI for application services
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -49,6 +56,12 @@ namespace KronborgsShopAPI
             app.UseRouting();
 
             app.UseAuthorization();
+
+            // add a apikey
+            app.UseMiddleware<ApiKeyMiddleware>();
+
+            //app.UseAuthentication();
+            //app.UseAuthorization();
 
             app.UseEndpoints(endpoints =>
             {
