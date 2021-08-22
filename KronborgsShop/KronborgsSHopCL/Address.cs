@@ -2,31 +2,43 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Text.Json.Serialization;
 using System.Threading.Tasks;
 
 namespace KronborgsSHopCL
 {
-    public class Address : EntityBase
+    public class Address // : EntityBase
     {
         public int AddressID { get; set; }
         public string StreetName { get; set; }
         public string StreetNumber { get; set; }
+        public Postnummer postnummer { get; set; }
 
-        public Address() : this(0)
+
+        [JsonConstructor]
+        public Address(string streetName, string streetNumber)
         {
-
-        }
-        public Address(int AddressID)
-        {
-            if (AddressID == 0)
-            {
-
-            }
+            StreetName = streetName;
+            StreetNumber = streetNumber;
+            //postnummer.PostnummerID = postnummerID;
         }
 
-        public override bool Validate()
+        //public Address() : this(0)
+        //{
+
+        //}
+        public Address(Postnummer postnummer)
         {
-            throw new NotImplementedException();
+            this.postnummer = postnummer;
+        }
+
+        //public override bool Validate()
+        //{
+        //    throw new NotImplementedException();
+        //}
+        public void SetAddressID(int id)
+        {
+            AddressID = id;
         }
     }
 }

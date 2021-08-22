@@ -74,9 +74,18 @@ namespace KronborgsShopORM
         {
             Address address = null;
 
-            string query = "SELECT Postnummer, Bynavn FROM Postnummer WHERE Postnummer = @val";
+            string query = "SELECT dbo.Adresse.AdresseID, dbo.Adresse.VejNavn, dbo.Adresse.Vejnummer, dbo.Postnummer.Postnummer, dbo.Postnummer.Bynavn";
+            query += " FROM dbo.Adresse INNER JOIN";
+            query += " dbo.Postnummer ON dbo.Adresse.Postnummer = dbo.Postnummer.Postnummer";
+            query += " WHERE dbo.Adresse.AdresseID = @val";
+
+            //string query = "SELECT id, navn, pris FROM produkt WHERE id = @val";
+
+
             SqlCommand cmd = new SqlCommand(query, dbConn);
             cmd.Parameters.AddWithValue("@val", id);
+
+
 
             if (dbConn.State == System.Data.ConnectionState.Closed)
             {
@@ -91,18 +100,26 @@ namespace KronborgsShopORM
                 }
 
                 SqlDataReader reader = cmd.ExecuteReader(System.Data.CommandBehavior.CloseConnection);
-                int i = 0;
-                while (reader.Read())
+                Postnummer postnummer = null;
+                if (reader.Read())
                 {
-                    address = new Address(Convert.ToInt32(reader["Postnummer"]))
+
+                    postnummer = new Postnummer(Convert.ToInt32(reader["Postnummer"]))
                     {
-                        //City = reader["Bynavn"].ToString()
+                        City = reader["Bynavn"].ToString()
                     };
-                    i++;
+
+
+
+                    address = new Address(postnummer)
+                    {
+                        AddressID = Convert.ToInt32(reader["AdresseID"]),
+                        StreetName = reader["VejNavn"].ToString(),
+                        StreetNumber = reader["Vejnummer"].ToString()
+                    };
                 }
                 dbConn.Close();
                 reader.Close();
-                if (i != 1) return null;
             }
 
             return address;
@@ -111,9 +128,14 @@ namespace KronborgsShopORM
         public List<Address> GetAddresses()
         {
             List<Address> addresses = new List<Address>();
+            //List<Postnummer> postnummers = new List<Postnummer>();
+            Postnummer postnummer = null;
 
 
-            string query = "SELECT Postnummer, Bynavn FROM Postnummer WHERE Postnummer = @val";
+            string query = "SELECT dbo.Adresse.AdresseID, dbo.Adresse.VejNavn, dbo.Adresse.Vejnummer, dbo.Postnummer.Postnummer, dbo.Postnummer.Bynavn";
+            query += " FROM dbo.Adresse INNER JOIN";
+            query += " dbo.Postnummer ON dbo.Adresse.Postnummer = dbo.Postnummer.Postnummer";
+            //query += " WHERE dbo.Adresse.AdresseID = @val";
             SqlCommand cmd = new SqlCommand(query, dbConn);
             //cmd.Parameters.AddWithValue("@val", id);
 
@@ -133,11 +155,18 @@ namespace KronborgsShopORM
                 int i = 0;
                 while (reader.Read())
                 {
-                    addresses.Add(new Address(Convert.ToInt32(reader["Postnummer"]))
+                    postnummer = new Postnummer(Convert.ToInt32(reader["Postnummer"]))
                     {
+                        City = reader["Bynavn"].ToString()
+                    };
+                    addresses.Add(new Address(postnummer)
+                    {
+                        AddressID = Convert.ToInt32(reader["AdresseID"]),
                         StreetName = reader["VejNavn"].ToString(),
                         StreetNumber = reader["Vejnummer"].ToString()
                     });
+                    postnummer = null;
+
                     i++;
                 }
                 dbConn.Close();
@@ -149,11 +178,11 @@ namespace KronborgsShopORM
         }
         public Address CreateAddress(Address address)
         {
-            string query = "INSERT INTO Kunder (Fornavn, Efternavn, Email, Mobil) VALUES (@val1, @val2, @val3, @val4); SELECT SCOPE_IDENTITY() AS id;";
+            string query = "INSERT INTO Adresse (VejNavn, Vejnummer, Postnummer) VALUES (@val1, @val2, @val3); SELECT SCOPE_IDENTITY() AS id;";
             SqlCommand cmd = new SqlCommand(query, dbConn);
             cmd.Parameters.AddWithValue("@val1", address.StreetName);
             cmd.Parameters.AddWithValue("@val2", address.StreetNumber);
-            //cmd.Parameters.AddWithValue("@val3", address.Email);
+            cmd.Parameters.AddWithValue("@val3", address.postnummer.PostnummerID);
             //cmd.Parameters.AddWithValue("@val4", address.Mobil);
             //cmd.Parameters.AddWithValue("@val2", product.Price);
 
@@ -169,7 +198,7 @@ namespace KronborgsShopORM
                 }
             }
 
-            //member.SetProductID(Convert.ToInt32(cmd.ExecuteScalar()));
+            address.SetAddressID(Convert.ToInt32(cmd.ExecuteScalar()));
             dbConn.Close();
 
             return address;
