@@ -64,5 +64,22 @@ namespace KronborgsShopAPI.Controllers
             return Ok(address);
 
         }
+        [HttpDelete]
+        public ActionResult Delete(int id)
+        {
+            try
+            {
+                ORM.DeleteAddress(id);
+            }
+            catch (Exception ex)
+            {
+                throw new ArgumentException("Something went wrong" + ex.Message);
+            }
+
+            //if (product == null) return NotFound();
+
+            // 200 ok 
+            return Ok();
+        }
     }
 }

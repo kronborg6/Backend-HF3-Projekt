@@ -2,7 +2,6 @@ C:\Users\mkron\OneDrive\Dokumenter\Rpoes\HF3\Backend-HF3-Projekt\KronborgsShop\K
 C:\Users\mkron\OneDrive\Dokumenter\Rpoes\HF3\Backend-HF3-Projekt\KronborgsShop\KronborgsSHopCL\bin\Debug\net5.0\KronborgsSHopCL.dll
 C:\Users\mkron\OneDrive\Dokumenter\Rpoes\HF3\Backend-HF3-Projekt\KronborgsShop\KronborgsSHopCL\bin\Debug\net5.0\ref\KronborgsSHopCL.dll
 C:\Users\mkron\OneDrive\Dokumenter\Rpoes\HF3\Backend-HF3-Projekt\KronborgsShop\KronborgsSHopCL\bin\Debug\net5.0\KronborgsSHopCL.pdb
-C:\Users\mkron\OneDrive\Dokumenter\Rpoes\HF3\Backend-HF3-Projekt\KronborgsShop\KronborgsSHopCL\obj\Debug\net5.0\KronborgsSHopCL.csprojAssemblyReference.cache
 C:\Users\mkron\OneDrive\Dokumenter\Rpoes\HF3\Backend-HF3-Projekt\KronborgsShop\KronborgsSHopCL\obj\Debug\net5.0\KronborgsSHopCL.GeneratedMSBuildEditorConfig.editorconfig
 C:\Users\mkron\OneDrive\Dokumenter\Rpoes\HF3\Backend-HF3-Projekt\KronborgsShop\KronborgsSHopCL\obj\Debug\net5.0\KronborgsSHopCL.AssemblyInfoInputs.cache
 C:\Users\mkron\OneDrive\Dokumenter\Rpoes\HF3\Backend-HF3-Projekt\KronborgsShop\KronborgsSHopCL\obj\Debug\net5.0\KronborgsSHopCL.AssemblyInfo.cs
@@ -10,3 +9,4 @@ C:\Users\mkron\OneDrive\Dokumenter\Rpoes\HF3\Backend-HF3-Projekt\KronborgsShop\K
 C:\Users\mkron\OneDrive\Dokumenter\Rpoes\HF3\Backend-HF3-Projekt\KronborgsShop\KronborgsSHopCL\obj\Debug\net5.0\KronborgsSHopCL.dll
 C:\Users\mkron\OneDrive\Dokumenter\Rpoes\HF3\Backend-HF3-Projekt\KronborgsShop\KronborgsSHopCL\obj\Debug\net5.0\ref\KronborgsSHopCL.dll
 C:\Users\mkron\OneDrive\Dokumenter\Rpoes\HF3\Backend-HF3-Projekt\KronborgsShop\KronborgsSHopCL\obj\Debug\net5.0\KronborgsSHopCL.pdb
+C:\Users\mkron\OneDrive\Dokumenter\Rpoes\HF3\Backend-HF3-Projekt\KronborgsShop\KronborgsSHopCL\obj\Debug\net5.0\KronborgsSHopCL.csproj.AssemblyReference.cache

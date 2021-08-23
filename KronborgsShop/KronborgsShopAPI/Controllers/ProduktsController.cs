@@ -69,18 +69,17 @@ namespace KronborgsShopAPI.Controllers
         [HttpDelete]
         public ActionResult Delete(int id)
         {
-            Product product;
 
             try
             {
-                product = ORM.DeleteProduct(id);
+                ORM.DeleteProduct(id);
             }
             catch (Exception ex)
             {
                 throw new ArgumentException("Something went wrong" + ex.Message);
             }
 
-            if (product == null) return NotFound();
+            //if (product == null) return NotFound();
 
             // 200 ok 
             return Ok();

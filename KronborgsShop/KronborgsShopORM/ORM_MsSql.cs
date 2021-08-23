@@ -1,6 +1,7 @@
 ﻿using KronborgsSHopCL;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Data.SqlClient;
 
 
@@ -203,6 +204,27 @@ namespace KronborgsShopORM
 
             return address;
         }
+        public void DeleteAddress(int id)
+        {
+            string query = "DELETE FROM Adresse WHERE AdresseID = @val";
+            SqlCommand cmd = new SqlCommand(query, dbConn);
+            cmd.Parameters.AddWithValue("@val", id);
+            if (dbConn.State == System.Data.ConnectionState.Closed)
+            {
+                try
+                {
+                    // open database connection
+                    dbConn.Open();
+                }
+                catch (Exception ex)
+                {
+                    throw new Exception(ex.Message);
+                }
+                cmd.ExecuteReader(System.Data.CommandBehavior.CloseConnection);
+
+                dbConn.Close();
+            }
+        }
 
         public Member GetMember(int id)
         {
@@ -326,12 +348,13 @@ namespace KronborgsShopORM
         }
         public Member CreateMember(Member member)
         {
-            string query = "INSERT INTO Kunder (Fornavn, Efternavn, Email, Mobil) VALUES (@val1, @val2, @val3, @val4); SELECT SCOPE_IDENTITY() AS id;";
+            string query = "INSERT INTO Kunder (Fornavn, Efternavn, Email, Mobil, AdresseID) VALUES (@val1, @val2, @val3, @val4, @val5); SELECT SCOPE_IDENTITY() AS id;";
             SqlCommand cmd = new SqlCommand(query, dbConn);
             cmd.Parameters.AddWithValue("@val1", member.Fristname);
             cmd.Parameters.AddWithValue("@val2", member.Lastname);
             cmd.Parameters.AddWithValue("@val3", member.Email);
             cmd.Parameters.AddWithValue("@val4", member.Mobil);
+            cmd.Parameters.AddWithValue("@val5", member.Address.AddressID);
             //cmd.Parameters.AddWithValue("@val2", product.Price);
 
             if (dbConn.State == System.Data.ConnectionState.Closed)
@@ -346,10 +369,33 @@ namespace KronborgsShopORM
                 }
             }
 
-            //member.SetProductID(Convert.ToInt32(cmd.ExecuteScalar()));
+            member.SetMemberID(Convert.ToInt32(cmd.ExecuteScalar()));
             dbConn.Close();
 
             return member;
+        }
+        public void DeleteMember(int id)
+        {
+            string query = "DELETE FROM Kunder WHERE KundeID = @val";
+            SqlCommand cmd = new SqlCommand(query, dbConn);
+            cmd.Parameters.AddWithValue("@val", id);
+            if (dbConn.State == System.Data.ConnectionState.Closed)
+            {
+                try
+                {
+                    // open database connection
+                    dbConn.Open();
+                }
+                catch (Exception ex)
+                {
+                    throw new Exception(ex.Message);
+                }
+                cmd.ExecuteReader(System.Data.CommandBehavior.CloseConnection);
+
+                dbConn.Close();
+            }
+
+
         }
         public Order GetOrder()
         {
@@ -538,36 +584,42 @@ namespace KronborgsShopORM
             return product;
         }
 
-        public Product EditProduct()
+        public Product EditProduct(int id)
         {
-            //string query = "INSERT INTO Produkt (ProduktNavn, Prise) VALUES (@val1, @val2); SELECT SCOPE_IDENTITY() AS id;";
-            //SqlCommand cmd = new SqlCommand(query, dbConn);
-            //cmd.Parameters.AddWithValue("@val1", product.Name);
+            Product product = null;
+            string query = "INSERT INTO Produkt (ProduktNavn, Prise) VALUES (@Navn, @val2); WHERE ProduktID = @val";
+            SqlCommand cmd = new SqlCommand(query, dbConn);
+            cmd.Parameters.Add("@Navn", SqlDbType.VarChar).Value = string.IsNullOrEmpty(product.Name) ? (object)DBNull.Value : product.Name;
+            cmd.Parameters.Add("@FirmaID", SqlDbType.Int).Value = Equals(product.Price, 0) ? (object)DBNull.Value : product.Price;
+
+
+            cmd.Parameters.AddWithValue("@val", id);
+            //cmd.Parameters.AddWithValue("@val2", product.Name);
             //cmd.Parameters.AddWithValue("@val2", product.Price);
 
-            //if (dbConn.State == System.Data.ConnectionState.Closed)
-            //{
-            //    try
-            //    {
-            //        dbConn.Open();
-            //    }
-            //    catch (Exception ex)
-            //    {
-            //        throw new Exception(ex.Message);
-            //    }
-            //}
+            if (dbConn.State == System.Data.ConnectionState.Closed)
+            {
+                try
+                {
+                    dbConn.Open();
+                }
+                catch (Exception ex)
+                {
+                    throw new Exception(ex.Message);
+                }
+            }
 
             //product.SetProductID(Convert.ToInt32(cmd.ExecuteScalar()));
-            //dbConn.Close();
+            dbConn.Close();
 
-            //return product;
-            throw new NotImplementedException();
+            return product;
+            //throw new NotImplementedException();
 
         }
 
-        public Product DeleteProduct(int id)
+        public void DeleteProduct(int id)
         {
-            Product product = null;
+            //Product product = null;
 
             string query = "DELETE FROM Produkt WHERE ProduktID = @val";
             SqlCommand cmd = new SqlCommand(query, dbConn);
@@ -585,14 +637,13 @@ namespace KronborgsShopORM
                     throw new Exception(ex.Message);
                 }
                 cmd.ExecuteReader(System.Data.CommandBehavior.CloseConnection);
-                int i = 0;
                
                 dbConn.Close();
                 //reader.Close();
-                if (i != 1) return null;
             }
 
-            return product;
+            //return product;
         }
+
     }
 }

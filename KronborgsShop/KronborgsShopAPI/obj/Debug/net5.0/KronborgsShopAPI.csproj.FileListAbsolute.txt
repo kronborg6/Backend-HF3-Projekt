@@ -9,7 +9,6 @@ C:\Users\mkron\OneDrive\Dokumenter\Rpoes\HF3\Backend-HF3-Projekt\KronborgsShop\K
 C:\Users\mkron\OneDrive\Dokumenter\Rpoes\HF3\Backend-HF3-Projekt\KronborgsShop\KronborgsShopAPI\bin\Debug\net5.0\KronborgsShopAPI.pdb
 C:\Users\mkron\OneDrive\Dokumenter\Rpoes\HF3\Backend-HF3-Projekt\KronborgsShop\KronborgsShopAPI\bin\Debug\net5.0\KronborgsShopAPI.Views.dll
 C:\Users\mkron\OneDrive\Dokumenter\Rpoes\HF3\Backend-HF3-Projekt\KronborgsShop\KronborgsShopAPI\bin\Debug\net5.0\KronborgsShopAPI.Views.pdb
-C:\Users\mkron\OneDrive\Dokumenter\Rpoes\HF3\Backend-HF3-Projekt\KronborgsShop\KronborgsShopAPI\obj\Debug\net5.0\KronborgsShopAPI.csprojAssemblyReference.cache
 C:\Users\mkron\OneDrive\Dokumenter\Rpoes\HF3\Backend-HF3-Projekt\KronborgsShop\KronborgsShopAPI\obj\Debug\net5.0\KronborgsShopAPI.GeneratedMSBuildEditorConfig.editorconfig
 C:\Users\mkron\OneDrive\Dokumenter\Rpoes\HF3\Backend-HF3-Projekt\KronborgsShop\KronborgsShopAPI\obj\Debug\net5.0\KronborgsShopAPI.AssemblyInfoInputs.cache
 C:\Users\mkron\OneDrive\Dokumenter\Rpoes\HF3\Backend-HF3-Projekt\KronborgsShop\KronborgsShopAPI\obj\Debug\net5.0\KronborgsShopAPI.AssemblyInfo.cs
@@ -53,3 +52,4 @@ C:\Users\mkron\OneDrive\Dokumenter\Rpoes\HF3\Backend-HF3-Projekt\KronborgsShop\K
 C:\Users\mkron\OneDrive\Dokumenter\Rpoes\HF3\Backend-HF3-Projekt\KronborgsShop\KronborgsShopAPI\bin\Debug\net5.0\KronborgsShopORM.dll
 C:\Users\mkron\OneDrive\Dokumenter\Rpoes\HF3\Backend-HF3-Projekt\KronborgsShop\KronborgsShopAPI\bin\Debug\net5.0\KronborgsSHopCL.pdb
 C:\Users\mkron\OneDrive\Dokumenter\Rpoes\HF3\Backend-HF3-Projekt\KronborgsShop\KronborgsShopAPI\bin\Debug\net5.0\KronborgsShopORM.pdb
+C:\Users\mkron\OneDrive\Dokumenter\Rpoes\HF3\Backend-HF3-Projekt\KronborgsShop\KronborgsShopAPI\obj\Debug\net5.0\KronborgsShopAPI.csproj.AssemblyReference.cache

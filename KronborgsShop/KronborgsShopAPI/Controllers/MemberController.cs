@@ -57,5 +57,29 @@ namespace KronborgsShopAPI.Controllers
 
             return members;
         }
+        [HttpPost]
+        public ActionResult<Member> Post([FromBody] Member member)
+        {
+            ORM.CreateMember(member);
+            return Ok(member);
+
+        }
+        [HttpDelete]
+        public ActionResult Delete(int id)
+        {
+            try
+            {
+                ORM.DeleteMember(id);
+            }
+            catch (Exception ex)
+            {
+                throw new ArgumentException("Something went wrong" + ex.Message);
+            }
+
+            //if (product == null) return NotFound();
+
+            // 200 ok 
+            return Ok();
+        }
     }
 }

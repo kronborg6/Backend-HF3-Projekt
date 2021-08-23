@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Text.Json.Serialization;
 
 namespace KronborgsSHopCL
 {
@@ -19,6 +20,17 @@ namespace KronborgsSHopCL
         {
             this.MemberID = ID;
             //this.Address = address;
+        }
+        [JsonConstructor]
+        public Member(string fristName, string lastName)
+        {
+            Fristname = fristName;
+            Lastname = lastName;
+            //postnummer.PostnummerID = postnummerID;
+        }
+        public void SetMemberID(int id)
+        {
+            MemberID = id;
         }
     }
 }
