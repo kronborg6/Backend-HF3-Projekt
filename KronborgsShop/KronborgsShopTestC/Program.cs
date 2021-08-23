@@ -40,22 +40,36 @@ namespace KronborgsShopTestC
 
             //Console.WriteLine("");
 
+            //Member member = null;
 
-            Postnummer postnummer = null;
-            Address address = null;
+            //Postnummer postnummer = null;
+            //Address address = null;
 
-            postnummer = new Postnummer(5690)
-            {
-                City = "Tommerup"
-            };
-            address = new Address(postnummer)
-            {
-                StreetName = "Skovstrupvej",
-                StreetNumber = "46",
-                AddressID = 1
-            };
+            //postnummer = new Postnummer(5690)
+            //{
+            //    City = "Tommerup"
+            //};
+            //address = new Address(postnummer)
+            //{
+            //    StreetName = "Skovstrupvej",
+            //    StreetNumber = "46",
+            //    AddressID = 1
+            //};
+            //member = new Member(1, address)
+            //{
+            //    Fristname = "Mikkel",
+            //    Lastname = "Kronborg",
+            //    Email = "mkronborg7@gmail.com",
+            //    Mobil = 60677407
+            //};
 
-            ORM.CreateAddress(address);
+
+            //ORM.CreateAddress(address);
+
+
+            //member = ORM.GetMember(1);
+            //Console.WriteLine("ID: {0} Fristname: {1} Lastname: {2} Mobil: {3} Email: {4} Vejnavn: {5} Vejnummer {6}",
+            //    member.MemberID, member.Fristname, member.Lastname, member.Mobil, member.Email, member.Address.StreetName, member.Address.StreetNumber);
 
             //Console.WriteLine("ID: {0} Postnummer: {1} By: {2} Gade: {3} Nummer: {4}", address.AddressID, address.postnummer.PostnummerID, address.postnummer.City, address.StreetName, address.StreetNumber);
 

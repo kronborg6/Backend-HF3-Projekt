@@ -18,7 +18,7 @@ namespace KronborgsShopAPI.Middleware
             if (!context.Request.Headers.TryGetValue(APIKEYNAME, out var extractedApiKey))
             {
                 context.Response.StatusCode = 401;
-                await context.Response.WriteAsync("Api Key was not provided. (Using ApiKeyMiddleware) ");
+                await context.Response.WriteAsync("Api Key was not provided. (Using Kronborg's ApiKey) ");
                 return;
             }
 
@@ -29,7 +29,7 @@ namespace KronborgsShopAPI.Middleware
             if (!apiKey.Equals(extractedApiKey))
             {
                 context.Response.StatusCode = 401;
-                await context.Response.WriteAsync("Unauthorized client. (Using ApiKeyMiddleware)");
+                await context.Response.WriteAsync("Unauthorized client. (Using Kronborg's ApiKey)");
                 return;
             }
 

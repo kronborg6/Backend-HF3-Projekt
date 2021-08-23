@@ -10,14 +10,15 @@ namespace KronborgsSHopCL
         public string Lastname { get; set; }
         public int Mobil { get; set; }
         public string Email { get; set; }
-        public List<Address> Addres { get; set; }
-        public Member() : this(0)
-        {
+        public Address Address { get; set; }
+        //public Member() : this(0)
+        //{
 
-        }
+        //}
         public Member(int ID)
         {
             this.MemberID = ID;
+            //this.Address = address;
         }
     }
 }

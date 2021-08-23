@@ -111,7 +111,7 @@ namespace KronborgsShopORM
 
 
 
-                    address = new Address(postnummer)
+                    address = new Address(postnummer, Convert.ToInt32(reader["AdresseID"]))
                     {
                         AddressID = Convert.ToInt32(reader["AdresseID"]),
                         StreetName = reader["VejNavn"].ToString(),
@@ -159,7 +159,7 @@ namespace KronborgsShopORM
                     {
                         City = reader["Bynavn"].ToString()
                     };
-                    addresses.Add(new Address(postnummer)
+                    addresses.Add(new Address(postnummer, Convert.ToInt32(reader["AdresseID"]))
                     {
                         AddressID = Convert.ToInt32(reader["AdresseID"]),
                         StreetName = reader["VejNavn"].ToString(),
@@ -208,7 +208,11 @@ namespace KronborgsShopORM
         {
             Member member = null;
 
-            string query = "SELECT KundeID, Fornavn, Efternavn, Mobil, Email FROM Kunder WHERE KundeID = @val";
+            string query = "SELECT dbo.Kunder.KundeID, dbo.Kunder.Fornavn, dbo.Kunder.Efternavn, dbo.Kunder.Mobil, dbo.Kunder.Email, dbo.Adresse.VejNavn, dbo.Adresse.Vejnummer, dbo.Postnummer.Postnummer, dbo.Postnummer.Bynavn, dbo.Adresse.AdresseID";
+            query += " FROM dbo.Adresse INNER JOIN";
+            query += " dbo.Postnummer ON dbo.Adresse.Postnummer = dbo.Postnummer.Postnummer INNER JOIN";
+            query += " dbo.Kunder ON dbo.Adresse.AdresseID = dbo.Kunder.AdresseID";
+            query += " WHERE  dbo.Kunder.KundeID = @val";
             SqlCommand cmd = new SqlCommand(query, dbConn);
             cmd.Parameters.AddWithValue("@val", id);
 
@@ -223,19 +227,36 @@ namespace KronborgsShopORM
                 {
                     throw new Exception(ex.Message);
                 }
-
+                
                 SqlDataReader reader = cmd.ExecuteReader(System.Data.CommandBehavior.CloseConnection);
                 int i = 0;
                 while (reader.Read())
                 {
+                    Postnummer postnummer = null;
+                    Address address = null;
+
+                    postnummer = new Postnummer(Convert.ToInt32(reader["Postnummer"]))
+                    {
+                        City = reader["Bynavn"].ToString()
+                    };
+                    address = new Address(postnummer, Convert.ToInt32(reader["AdresseID"]))
+                    {
+                        //AddressID = Convert.ToInt32(reader["AdresseID"]),
+                        StreetName = reader["VejNavn"].ToString(),
+                        StreetNumber = reader["Vejnummer"].ToString()
+                    };
+
                     member = new Member(Convert.ToInt32(reader["KundeID"]))
                     {
                         Fristname = reader["Fornavn"].ToString(),
                         Lastname = reader["Efternavn"].ToString(),
                         Email = reader["Email"].ToString(),
-                        Mobil = Convert.ToInt32(reader["Mobil"])
+                        Mobil = Convert.ToInt32(reader["Mobil"]),
+                        Address = address
                     };
                     i++;
+                    postnummer = null;
+                    address = null;
                 }
                 dbConn.Close();
                 reader.Close();
@@ -247,9 +268,14 @@ namespace KronborgsShopORM
         public List<Member> GetMembers()
         {
             List<Member> members = new List<Member>();
+            Postnummer postnummer = null;
+            Address address = null;
 
 
-            string query = "SELECT KundeID, Fornavn, Efternavn, Mobil, Email FROM Kunder";
+            string query = "SELECT dbo.Kunder.KundeID, dbo.Kunder.Fornavn, dbo.Kunder.Efternavn, dbo.Kunder.Mobil, dbo.Kunder.Email, dbo.Adresse.VejNavn, dbo.Adresse.Vejnummer, dbo.Postnummer.Postnummer, dbo.Postnummer.Bynavn, dbo.Adresse.AdresseID";
+            query += " FROM dbo.Adresse INNER JOIN";
+            query += " dbo.Postnummer ON dbo.Adresse.Postnummer = dbo.Postnummer.Postnummer INNER JOIN";
+            query += " dbo.Kunder ON dbo.Adresse.AdresseID = dbo.Kunder.AdresseID";
             SqlCommand cmd = new SqlCommand(query, dbConn);
             //cmd.Parameters.AddWithValue("@val", id);
 
@@ -269,18 +295,31 @@ namespace KronborgsShopORM
                 int i = 0;
                 while (reader.Read())
                 {
+                    postnummer = new Postnummer(Convert.ToInt32(reader["Postnummer"]))
+                    {
+                        City = reader["Bynavn"].ToString()
+                    };
+                    address = new Address(postnummer, Convert.ToInt32(reader["AdresseID"]))
+                    {
+                        //AddressID = Convert.ToInt32(reader["AdresseID"]),
+                        StreetName = reader["VejNavn"].ToString(),
+                        StreetNumber = reader["Vejnummer"].ToString()
+                    };
                     members.Add(new Member(Convert.ToInt32(reader["KundeID"]))
                     {
                         Fristname = reader["Fornavn"].ToString(),
                         Lastname = reader["Efternavn"].ToString(),
                         Email = reader["Email"].ToString(),
-                        Mobil = Convert.ToInt32(reader["Mobil"])
+                        Mobil = Convert.ToInt32(reader["Mobil"]),
+                        Address = address
                     });
+                    address = null;
+                    postnummer = null;
                     i++;
                 }
                 dbConn.Close();
                 reader.Close();
-                if (i != 1) return null;
+                //if (i != 1) return null;
             }
 
             return members;

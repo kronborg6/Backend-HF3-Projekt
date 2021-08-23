@@ -27,9 +27,10 @@ namespace KronborgsSHopCL
         //{
 
         //}
-        public Address(Postnummer postnummer)
+        public Address(Postnummer postnummer, int addressID)
         {
             this.postnummer = postnummer;
+            this.AddressID = addressID;
         }
 
         //public override bool Validate()
