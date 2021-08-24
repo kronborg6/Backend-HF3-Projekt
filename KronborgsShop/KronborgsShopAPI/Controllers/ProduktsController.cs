@@ -66,6 +66,25 @@ namespace KronborgsShopAPI.Controllers
             ORM.CreateProduct(product);
             return product;
         }
+        [HttpPut]
+        public ActionResult<Product> Update(int id, string Name, int Price)
+        {
+            Product product;
+
+            try
+            {
+                product = ORM.EditProduct(id, Name, Price);
+            }
+            catch (Exception ex)
+            {
+                throw new ArgumentException("Something went wrong" + ex.Message);
+            }
+
+            if (product == null) return NotFound();
+
+            // 200 ok 
+            return product;
+        }
         [HttpDelete]
         public ActionResult Delete(int id)
         {

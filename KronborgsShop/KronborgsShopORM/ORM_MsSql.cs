@@ -584,13 +584,13 @@ namespace KronborgsShopORM
             return product;
         }
 
-        public Product EditProduct(int id)
+        public Product EditProduct(int id, string Name, int Price)
         {
             Product product = null;
-            string query = "INSERT INTO Produkt (ProduktNavn, Prise) VALUES (@Navn, @val2); WHERE ProduktID = @val";
+            string query = "UPDATE Produkt (ProduktNavn, Prise) VALUES (@Navn, @Price); WHERE ProduktID = @val";
             SqlCommand cmd = new SqlCommand(query, dbConn);
-            cmd.Parameters.Add("@Navn", SqlDbType.VarChar).Value = string.IsNullOrEmpty(product.Name) ? (object)DBNull.Value : product.Name;
-            cmd.Parameters.Add("@FirmaID", SqlDbType.Int).Value = Equals(product.Price, 0) ? (object)DBNull.Value : product.Price;
+            cmd.Parameters.Add("@Navn", SqlDbType.VarChar).Value = string.IsNullOrEmpty(Name) ? (object)DBNull.Value : Name;
+            cmd.Parameters.Add("@Price", SqlDbType.Int).Value = Equals(Price, 0) ? (object)DBNull.Value : Price;
 
 
             cmd.Parameters.AddWithValue("@val", id);

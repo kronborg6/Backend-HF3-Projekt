@@ -20,7 +20,7 @@ namespace KronborgsShopORM
         public List<Product> GetProducts();
         public Product GetProduct(int id);
         public Product CreateProduct(Product product);
-        public Product EditProduct(int id);
+        public Product EditProduct(int id, string Name, int Price);
         public void DeleteProduct(int id);
         public List<Postnummer> GetPostnummers();
         public Postnummer GetPostnummer(int id);
