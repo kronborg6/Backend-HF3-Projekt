@@ -11,6 +11,8 @@ namespace KronborgsShopTestC
         {
             ORM_MsSql ORM = new ORM_MsSql();
 
+            ORM.EditProduct(3, "Fanta", 21);
+
             //Postnummer cust1 = ORM.GetPostnummer(5690);
             //customers = ORM.GetCustomers();
             //Console.WriteLine(cust1.PostnummerID + ": " + cust1.City);

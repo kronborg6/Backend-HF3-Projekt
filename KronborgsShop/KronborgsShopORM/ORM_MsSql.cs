@@ -587,21 +587,20 @@ namespace KronborgsShopORM
         public Product EditProduct(int id, string Name, int Price)
         {
             Product product = null;
-            string query = "UPDATE Produkt (ProduktNavn, Prise) VALUES (@Navn, @Price); WHERE ProduktID = @val";
+            string query = "UPDATE Produkt SET ProduktNavn = @Navn, Prise = @Price WHERE ProduktID = @val;";
             SqlCommand cmd = new SqlCommand(query, dbConn);
             cmd.Parameters.Add("@Navn", SqlDbType.VarChar).Value = string.IsNullOrEmpty(Name) ? (object)DBNull.Value : Name;
             cmd.Parameters.Add("@Price", SqlDbType.Int).Value = Equals(Price, 0) ? (object)DBNull.Value : Price;
 
 
             cmd.Parameters.AddWithValue("@val", id);
-            //cmd.Parameters.AddWithValue("@val2", product.Name);
-            //cmd.Parameters.AddWithValue("@val2", product.Price);
 
             if (dbConn.State == System.Data.ConnectionState.Closed)
             {
                 try
                 {
                     dbConn.Open();
+                    cmd.ExecuteNonQuery();
                 }
                 catch (Exception ex)
                 {
@@ -609,11 +608,9 @@ namespace KronborgsShopORM
                 }
             }
 
-            //product.SetProductID(Convert.ToInt32(cmd.ExecuteScalar()));
             dbConn.Close();
 
             return product;
-            //throw new NotImplementedException();
 
         }
 

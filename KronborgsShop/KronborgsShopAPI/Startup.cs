@@ -58,7 +58,7 @@ namespace KronborgsShopAPI
             app.UseAuthorization();
 
             // add a apikey
-            app.UseMiddleware<ApiKeyMiddleware>();
+            //app.UseMiddleware<ApiKeyMiddleware>();
 
             //app.UseAuthentication();
             //app.UseAuthorization();
