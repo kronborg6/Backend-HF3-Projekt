@@ -64,6 +64,27 @@ namespace KronborgsShopAPI.Controllers
             return Ok(member);
 
         }
+
+        [HttpPut]
+        public ActionResult<Member> Update(int id, string Fristname, string Lastname, string Email, int Mobil)
+        {
+            Member member;
+
+            try
+            {
+                member = ORM.EditMember(id, Fristname, Lastname, Email, Mobil);
+            }
+            catch (Exception ex)
+            {
+                throw new ArgumentException("Something went wrong" + ex.Message);
+            }
+
+            if (member == null) return NotFound();
+
+            // 200 ok 
+            return Ok();
+        }
+
         [HttpDelete]
         public ActionResult Delete(int id)
         {

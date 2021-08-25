@@ -15,14 +15,11 @@ namespace KronborgsShopAPI.Controllers
     public class ProduktsController : ControllerBase
     {
         private readonly ORM_MsSql ORM;
-
         public ProduktsController()
         {
             ORM = new ORM_MsSql();
         }
 
-
-        
         [HttpGet("{id}")]
         public ActionResult<Product> Get(int id)
         {
@@ -42,6 +39,7 @@ namespace KronborgsShopAPI.Controllers
             // 200 ok 
             return Ok(product);
         }
+
         [HttpGet]
         public ActionResult<IEnumerable<Product>> Get()
         {
@@ -60,12 +58,14 @@ namespace KronborgsShopAPI.Controllers
 
             return products;
         }
+
         [HttpPost]
         public ActionResult<Product> Post([FromBody] Product product)
         {
             ORM.CreateProduct(product);
             return product;
         }
+
         [HttpPut]
         public ActionResult<Product> Update(int id, string Name, int Price)
         {
@@ -83,8 +83,9 @@ namespace KronborgsShopAPI.Controllers
             if (product == null) return NotFound();
 
             // 200 ok 
-            return product;
+            return Ok();
         }
+
         [HttpDelete]
         public ActionResult Delete(int id)
         {

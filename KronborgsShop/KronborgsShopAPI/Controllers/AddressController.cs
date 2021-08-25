@@ -64,6 +64,27 @@ namespace KronborgsShopAPI.Controllers
             return Ok(address);
 
         }
+
+        [HttpPut]
+        public ActionResult<Address> Update(int id, int postnummer, string Streetname, string Steetnumber)
+        {
+            Address address;
+
+            try
+            {
+                address = ORM.EditAddress(id, postnummer, Streetname, Steetnumber);
+            }
+            catch (Exception ex)
+            {
+                throw new ArgumentException("Something went wrong" + ex.Message);
+            }
+
+            if (address == null) return NotFound();
+
+            // 200 ok 
+            return Ok();
+        }
+
         [HttpDelete]
         public ActionResult Delete(int id)
         {

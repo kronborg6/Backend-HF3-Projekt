@@ -636,11 +636,67 @@ namespace KronborgsShopORM
                 cmd.ExecuteReader(System.Data.CommandBehavior.CloseConnection);
                
                 dbConn.Close();
-                //reader.Close();
             }
 
-            //return product;
         }
 
+        public Member EditMember(int id, string Fristname, string Lastname, string Email, int Mobil)
+        {
+            Member member = null;
+            string query = "UPDATE Kunder SET Fornavn = @Fristname, Efternavn = @Lastname, Mobil = @Number, @Email = email WHERE KundeID = @val;";
+            SqlCommand cmd = new SqlCommand(query, dbConn);
+            cmd.Parameters.Add("@Fristname", SqlDbType.VarChar).Value = string.IsNullOrEmpty(Fristname) ? (object)DBNull.Value : Fristname;
+            cmd.Parameters.Add("@Lastname", SqlDbType.VarChar).Value = string.IsNullOrEmpty(Lastname) ? (object)DBNull.Value : Lastname;
+            cmd.Parameters.Add("@Email", SqlDbType.VarChar).Value = string.IsNullOrEmpty(Email) ? (object)DBNull.Value : Email;
+            cmd.Parameters.Add("@Number", SqlDbType.Int).Value = Equals(Mobil, 0) ? (object)DBNull.Value : Mobil;
+
+            cmd.Parameters.AddWithValue("@val", id);
+
+            if (dbConn.State == System.Data.ConnectionState.Closed)
+            {
+                try
+                {
+                    dbConn.Open();
+                    cmd.ExecuteNonQuery();
+                }
+                catch (Exception ex)
+                {
+                    throw new Exception(ex.Message);
+                }
+            }
+
+            dbConn.Close();
+
+            return member;
+        }
+
+        public Address EditAddress(int id, int postnummer, string Streetname, string Steetnumber)
+        {
+            Address address = null;
+            string query = "UPDATE Adresse SET Postnummer = @postnummer, VejNavn = @streetname, Vejnummer = @steetnumber WHERE AdresseID = @val;";
+            SqlCommand cmd = new SqlCommand(query, dbConn);
+            cmd.Parameters.Add("@steetnumber", SqlDbType.VarChar).Value = string.IsNullOrEmpty(Steetnumber) ? (object)DBNull.Value : Steetnumber;
+            cmd.Parameters.Add("@streetname", SqlDbType.VarChar).Value = string.IsNullOrEmpty(Streetname) ? (object)DBNull.Value : Streetname;
+            cmd.Parameters.Add("@postnummer", SqlDbType.Int).Value = Equals(postnummer, 0) ? (object)DBNull.Value : postnummer;
+
+            cmd.Parameters.AddWithValue("@val", id);
+
+            if (dbConn.State == System.Data.ConnectionState.Closed)
+            {
+                try
+                {
+                    dbConn.Open();
+                    cmd.ExecuteNonQuery();
+                }
+                catch (Exception ex)
+                {
+                    throw new Exception(ex.Message);
+                }
+            }
+
+            dbConn.Close();
+
+            return address;
+        }
     }
 }
