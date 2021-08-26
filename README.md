@@ -1,2 +1,2 @@
 # Backend-HF3-Projekt
-4 uger projekt med database, Sererside, Softwaretest og Sikkerhed
+https://github.com/kronborg6/Backend-HF3-Projekt
