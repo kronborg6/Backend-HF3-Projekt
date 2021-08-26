@@ -30,47 +30,6 @@ namespace KronborgsShopORM
             dbConn = new SqlConnection(conString.ToString());
         }
 
-
-        //public List<Address> GetAddress()
-        //{
-        //    List<Address> addresses = new List<Address>();
-
-
-        //    string query = "SELECT Postnummer, Bynavn FROM Postnummer WHERE Postnummer = @val";
-        //    SqlCommand cmd = new SqlCommand(query, dbConn);
-        //    //cmd.Parameters.AddWithValue("@val", id);
-
-        //    if (dbConn.State == System.Data.ConnectionState.Closed)
-        //    {
-        //        try
-        //        {
-        //            // open database connection
-        //            dbConn.Open();
-        //        }
-        //        catch (Exception ex)
-        //        {
-        //            throw new Exception(ex.Message);
-        //        }
-
-        //        SqlDataReader reader = cmd.ExecuteReader(System.Data.CommandBehavior.CloseConnection);
-        //        int i = 0;
-        //        while (reader.Read())
-        //        {
-        //            addresses.Add(new Address(Convert.ToInt32(reader["Postnummer"]))
-        //            {
-        //                StreetName = reader["Bynavn"].ToString(),
-        //                StreetNumber = reader["Bynavn"].ToString()
-        //            });
-        //            i++;
-        //        }
-        //        dbConn.Close();
-        //        reader.Close();
-        //        if (i != 1) return null;
-        //    }
-
-        //    return addresses;
-        //}
-
         public Address GetAddress(int id)
         {
             Address address = null;
@@ -125,7 +84,6 @@ namespace KronborgsShopORM
 
             return address;
         }
-
         public List<Address> GetAddresses()
         {
             List<Address> addresses = new List<Address>();
@@ -225,7 +183,6 @@ namespace KronborgsShopORM
                 dbConn.Close();
             }
         }
-
         public Member GetMember(int id)
         {
             Member member = null;
@@ -401,12 +358,10 @@ namespace KronborgsShopORM
         {
             throw new NotImplementedException();
         }
-
         public List<Order> GetOrders()
         {
             throw new NotImplementedException();
         }
-
         public Postnummer GetPostnummer(int id)
         {
             Postnummer postnummer = null;
@@ -444,7 +399,6 @@ namespace KronborgsShopORM
 
             return postnummer;
         }
-
         public List<Postnummer> GetPostnummers()
         {
             List<Postnummer> postnummers = new List<Postnummer>();
@@ -480,7 +434,6 @@ namespace KronborgsShopORM
 
             return postnummers;
         }
-
         public Product GetProduct(int id)
         {
             Product product = null;
@@ -519,7 +472,6 @@ namespace KronborgsShopORM
 
             return product;
         }
-
         public List<Product> GetProducts()
         {
             List<Product> products = new List<Product>();
@@ -583,7 +535,6 @@ namespace KronborgsShopORM
 
             return product;
         }
-
         public Product EditProduct(int id, string Name, int Price)
         {
             Product product = null;
@@ -613,7 +564,6 @@ namespace KronborgsShopORM
             return product;
 
         }
-
         public void DeleteProduct(int id)
         {
             //Product product = null;
@@ -639,7 +589,6 @@ namespace KronborgsShopORM
             }
 
         }
-
         public Member EditMember(int id, string Fristname, string Lastname, string Email, int Mobil)
         {
             Member member = null;
@@ -669,7 +618,6 @@ namespace KronborgsShopORM
 
             return member;
         }
-
         public Address EditAddress(int id, int postnummer, string Streetname, string Steetnumber)
         {
             Address address = null;

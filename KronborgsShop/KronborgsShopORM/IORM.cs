@@ -28,7 +28,5 @@ namespace KronborgsShopORM
         public Postnummer GetPostnummer(int id);
         public List<Order> GetOrders();
         public Order GetOrder();
-        //public 
-
     }
 }
