@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Collapse, Container, Navbar, NavbarBrand, NavbarToggler, NavItem, NavLink } from 'reactstrap';
+import { Collapse, Navbar, NavbarToggler, NavbarBrand, Nav, NavItem, NavLink, UncontrolledDropdown, DropdownToggle, DropdownMenu, DropdownItem, Container } from 'reactstrap';
 import { Link } from 'react-router-dom';
 import './NavMenu.css';
 
@@ -29,6 +29,7 @@ export class NavMenu extends Component {
             <NavbarBrand tag={Link} to="/">KronborgsShopWebUI</NavbarBrand>
             <NavbarToggler onClick={this.toggleNavbar} className="mr-2" />
             <Collapse className="d-sm-inline-flex flex-sm-row-reverse" isOpen={!this.state.collapsed} navbar>
+            <Nav  className="mr-auto" navbar>
               <ul className="navbar-nav flex-grow">
                 <NavItem>
                   <NavLink tag={Link} className="text-dark" to="/">Home</NavLink>
@@ -40,6 +41,58 @@ export class NavMenu extends Component {
                   <NavLink tag={Link} className="text-dark" to="/fetch-data">Fetch data</NavLink>
                 </NavItem>
               </ul>
+              <UncontrolledDropdown nav inNavbar>
+              <DropdownToggle nav caret>
+                Produks
+              </DropdownToggle>
+              <DropdownMenu right>
+                <DropdownItem>
+                <NavLink tag={Link} className="text-dark" to="/Produkt">Find Produkt</NavLink>
+                </DropdownItem>
+                <DropdownItem>
+                <NavLink tag={Link} className="text-dark" to="/Produkts">Produkts List</NavLink>
+                </DropdownItem>
+                <DropdownItem divider />
+                <DropdownItem>
+                  Reset
+                </DropdownItem>
+              </DropdownMenu>
+            </UncontrolledDropdown>
+            <UncontrolledDropdown nav inNavbar>
+              <DropdownToggle nav caret>
+                Members
+              </DropdownToggle>
+              <DropdownMenu right>
+                <DropdownItem>
+                <NavLink tag={Link} className="text-dark" to="/Produkt">Find Produkt</NavLink>
+                </DropdownItem>
+                <DropdownItem>
+                <NavLink tag={Link} className="text-dark" to="/Produkts">Produkts List</NavLink>
+                </DropdownItem>
+                <DropdownItem divider />
+                <DropdownItem>
+                  Reset
+                </DropdownItem>
+              </DropdownMenu>
+            </UncontrolledDropdown>
+            <UncontrolledDropdown nav inNavbar>
+              <DropdownToggle nav caret>
+                Addresse
+              </DropdownToggle>
+              <DropdownMenu right>
+                <DropdownItem>
+                <NavLink tag={Link} className="text-dark" to="/Produkt">Find Produkt</NavLink>
+                </DropdownItem>
+                <DropdownItem>
+                <NavLink tag={Link} className="text-dark" to="/Produkts">Produkts List</NavLink>
+                </DropdownItem>
+                <DropdownItem divider />
+                <DropdownItem>
+                  Reset
+                </DropdownItem>
+              </DropdownMenu>
+            </UncontrolledDropdown>
+            </Nav>
             </Collapse>
           </Container>
         </Navbar>

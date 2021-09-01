@@ -29,13 +29,16 @@ namespace KronborgsShopAPI
 
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
-        {
+        { 
 
             services.AddControllers();
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "KronborgsShopAPI", Version = "v1" });
             });
+
+            services.AddCors(); // Make sure you call this previous to AddMvc
+            services.AddMvc();
             // configure basic authentication 
 
             // configure DI for application services
@@ -50,6 +53,12 @@ namespace KronborgsShopAPI
                 app.UseSwagger();
                 app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "KronborgsShopAPI v1"));
             }
+
+            app.UseCors(builder => builder
+                .AllowAnyOrigin()
+                .AllowAnyMethod()
+                .AllowAnyHeader());
+            //app.UseMvc();
 
             app.UseHttpsRedirection();
 
