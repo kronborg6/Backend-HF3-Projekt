@@ -1,4 +1,5 @@
 import React from 'react';
+import { Table } from 'reactstrap';
 
 class GetProdukts extends React.Component {
     constructor(props) {
@@ -18,27 +19,24 @@ class GetProdukts extends React.Component {
 
     render() {
         return (
-            <div>
-                <h2>Kronborg's Produkts</h2>
-                <table>
-                    <thead>
-                        <tr>
-                            <th>ID</th>
-                            <th>Name</th>
-                            <th>Price</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        {this.state.Produkts.map(emp=>(
-                            <tr key={emp.productID}>
-                                <td>{emp.productID}</td>
-                                <td>{emp.name}</td>
-                                <td>{emp.price}</td>
-                            </tr>
-                        ))}
-                    </tbody>
-                </table>
-            </div>
+                  <Table>
+                  <thead>
+                    <tr>
+                      <th>ID</th>
+                      <th>Produkt Name</th>
+                      <th>Price</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                  {this.state.Produkts.map(emp=>(
+                    <tr>
+                        <th scope="row">{emp.productID}</th>
+                        <td>{emp.name}</td>
+                        <td>{emp.price}</td>
+                    </tr>
+                    ))}
+                  </tbody>
+                </Table>
         );
     }
 }
