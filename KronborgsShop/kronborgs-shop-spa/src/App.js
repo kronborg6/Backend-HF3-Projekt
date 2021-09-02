@@ -1,12 +1,12 @@
-// import logo from './logo.svg';
 
 import './App.css';
-import Header from './components/Header'
+// import Header from './components/Header';
+// import Navbar from './components/NavBar';
 
 function App() {
   return (
     <div className="App">
-      <Header />
+      {/* <Header /> */}
       <h1>Kronborg</h1>
     </div>
   );
