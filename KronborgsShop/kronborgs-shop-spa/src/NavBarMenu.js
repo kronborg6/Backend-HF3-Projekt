@@ -3,7 +3,6 @@ import { Collapse, Navbar, NavbarToggler, NavbarBrand, Nav, NavItem, NavLink, Un
 
 import { Link } from 'react-router-dom';
 
-// Sider
 
 
 
@@ -14,7 +13,7 @@ const NavBarMenu = () => {
     <header>
     <Navbar className="navbar-expand-sm navbar-toggleable-sm ng-white border-bottom box-shadow mb-3" light>
       <Container>
-        <NavbarBrand tag={Link} to="/">KronborgsShopWebUI</NavbarBrand>
+        <NavbarBrand tag={Link} to="/">Kronborg's Shop</NavbarBrand>
         <NavbarToggler className="mr-2" />
         <Collapse className="d-sm-inline-flex flex-sm-row-reverse" navbar>
         <Nav  className="mr-auto" navbar>
@@ -23,10 +22,7 @@ const NavBarMenu = () => {
                
             </NavItem>
             <NavItem>
-              <NavLink tag={Link} className="text-dark" to="/Header">Counter</NavLink>
-            </NavItem>
-            <NavItem>
-              <NavLink tag={Link} className="text-dark" to="/fetch-data">Fetch data</NavLink>
+              <NavLink tag={Link} className="text-dark" to="/">Home</NavLink>
             </NavItem>
           </ul>
           <UncontrolledDropdown nav inNavbar>
@@ -55,7 +51,7 @@ const NavBarMenu = () => {
             <NavLink tag={Link} className="text-dark" to="/Produkt">Find Produkt</NavLink>
             </DropdownItem>
             <DropdownItem>
-            <NavLink tag={Link} className="text-dark" to="/Produkts">Produkts List</NavLink>
+            <NavLink tag={Link} className="text-dark" to="/Members">Members List</NavLink>
             </DropdownItem>
             <DropdownItem divider />
             <DropdownItem>
@@ -72,7 +68,7 @@ const NavBarMenu = () => {
             <NavLink tag={Link} className="text-dark" to="/Produkt">Find Produkt</NavLink>
             </DropdownItem>
             <DropdownItem>
-            <NavLink tag={Link} className="text-dark" to="/Produkts">Produkts List</NavLink>
+            <NavLink tag={Link} className="text-dark" to="/Adresses">Adresses List</NavLink>
             </DropdownItem>
             <DropdownItem divider />
             <DropdownItem>
