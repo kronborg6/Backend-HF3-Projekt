@@ -31,10 +31,10 @@ const NavBarMenu = () => {
           </DropdownToggle>
           <DropdownMenu right>
             <DropdownItem>
-            <NavLink tag={Link} className="text-dark" to="/Produkt">Find Produkt</NavLink>
+            {/* <NavLink tag={Link} className="text-dark" to="/Produkt">Find Produkt</NavLink> */}
             </DropdownItem>
             <DropdownItem>
-            <NavLink tag={Link} className="text-dark" to="/Produkts">Produkts List</NavLink>
+            {/* <NavLink tag={Link} className="text-dark" to="/Produkts">Produkts List</NavLink> */}
             </DropdownItem>
             <DropdownItem divider />
             <DropdownItem>
@@ -48,10 +48,10 @@ const NavBarMenu = () => {
           </DropdownToggle>
           <DropdownMenu right>
             <DropdownItem>
-            <NavLink tag={Link} className="text-dark" to="/Produkt">Find Produkt</NavLink>
+            {/* <NavLink tag={Link} className="text-dark" to="/Produkt">Find Produkt</NavLink> */}
             </DropdownItem>
             <DropdownItem>
-            <NavLink tag={Link} className="text-dark" to="/Members">Members List</NavLink>
+            {/* <NavLink tag={Link} className="text-dark" to="/Members">Members List</NavLink> */}
             </DropdownItem>
             <DropdownItem divider />
             <DropdownItem>
@@ -65,10 +65,10 @@ const NavBarMenu = () => {
           </DropdownToggle>
           <DropdownMenu right>
             <DropdownItem>
-            <NavLink tag={Link} className="text-dark" to="/Produkt">Find Produkt</NavLink>
+            {/* <NavLink tag={Link} className="text-dark" to="/Produkt">Find Produkt</NavLink> */}
             </DropdownItem>
             <DropdownItem>
-            <NavLink tag={Link} className="text-dark" to="/Adresses">Adresses List</NavLink>
+            {/* <NavLink tag={Link} className="text-dark" to="/Adresses">Adresses List</NavLink> */}
             </DropdownItem>
             <DropdownItem divider />
             <DropdownItem>

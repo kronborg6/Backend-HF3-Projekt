@@ -8,19 +8,24 @@ import Header from './components/Header';
 import Produkt from './components/Produkt/Produkt';
 import Produkts from './components/Produkt/Produkts';
 import MyComponent from './components/ApiTest/MyComponent';
-import Members from './components/Member/Members';
+import Member from './components/Member/Member';
 import Adresses from './components/Adresse/Adresses';
+import ProduktDelete from './components/Produkt/ProduktDelete';
+import MainProdukt from './components/Produkt/MainProdukt';
 
 const Routing = () => {
     return (
         <Layout>
-          <Route exact path='/' component={Home} />
+          <Route exact path='/' component={MainProdukt} />
           <Route path='/Produkt' component={Produkt} />
           <Route path='/Produkts' component={Produkts} />
           <Route path='/Header' component={Header} />
           <Route path='/Kronborg/Er/Gud' component={MyComponent} />
-          <Route path='/Members' component={Members} />
+          <Route path='/Members' component={Member} />
           <Route path='/Adresses' component={Adresses} />
+          <Route path='/del' component={ProduktDelete} />
+          <Route path='/MP' component={MainProdukt} />
+
         </Layout>
       )
 }
