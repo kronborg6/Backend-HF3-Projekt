@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Table, Button, ButtonGroup } from 'reactstrap';
+import { Table, Button, Input, InputGroup, InputGroupAddon, InputGroupText, Container, Card, Row, Col } from 'reactstrap';
 
 // import produkts list
 import Produkts from './Produkts';
@@ -78,8 +78,23 @@ function Produkt() {
           <h1>ProduktID: {id}</h1>
           <div>
           {/* <input ref={IDInput} placeholder="Produkt ID"/> */}
-          <input onChange={e => setID(e.target.value)} placeholder="Produkt ID"/>
-          <button onClick={getData}>Find Product</button>
+          <Row>
+                <br />
+                <br />
+                <Col xs="4">
+                <Card>
+            <InputGroup>
+            <InputGroupAddon addonType="prepend">
+          <InputGroupText>ID</InputGroupText>
+        </InputGroupAddon>
+
+        <Input onChange={e => setID(e.target.value)} placeholder="Produkt ID"/>
+        <Button outline onClick={getData} color="primary">Find Product</Button>
+
+            </InputGroup>
+            </Card>
+                </Col>
+            </Row>
           </div>
                <Table>
                <thead>

@@ -12,6 +12,9 @@ import Member from './components/Member/Member';
 import Adresses from './components/Adresse/Adresses';
 import ProduktDelete from './components/Produkt/ProduktDelete';
 import MainProdukt from './components/Produkt/MainProdukt';
+import ProduktPost from './components/Produkt/ProduktPost';
+
+
 
 const Routing = () => {
     return (
@@ -25,6 +28,7 @@ const Routing = () => {
           <Route path='/Adresses' component={Adresses} />
           <Route path='/del' component={ProduktDelete} />
           <Route path='/MP' component={MainProdukt} />
+          <Route path='/PP' component={ProduktPost} />
 
         </Layout>
       )

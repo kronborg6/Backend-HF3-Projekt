@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Button, Input, InputGroup, InputGroupAddon, InputGroupText } from 'reactstrap';
+import { Button, Input, InputGroup, InputGroupAddon, InputGroupText, Container, Card, Row, Col } from 'reactstrap';
 
 import Produkts from './Produkts';
 
@@ -9,6 +9,7 @@ function ProduktDelete() {
     const [status, setStatus] = useState(null);
     const [errorMessage, setErrorMessage] = useState(null);
     const IDInput = React.createRef();
+    const [showAddTask, setShowAddTask] = useState(false)
 
 
     async function DeleteData() {
@@ -64,19 +65,29 @@ function ProduktDelete() {
         <div>
             <h1>Delete Produkt</h1>
             {/* <input placeholder="Søge efter member med ID" onChange={e => setID(e.target.value)} /> */}
+            
         <div>
+        <Row>
+                <br />
+                <br />
+                <Col xs="4">
+                <Card>
             <InputGroup>
             <InputGroupAddon addonType="prepend">
           <InputGroupText>ID</InputGroupText>
         </InputGroupAddon>
+
             <Input className="smaller-input" onChange={e => setID(e.target.value)} placeholder="Produkt ID"/>
-            <button outline onClick={DeleteData} color="primary">Find Produkt Med ID</button> 
+            <Button outline onClick={DeleteData} color="danger">Delete Produkt</Button> 
 
             </InputGroup>
+            </Card>
+                </Col>
+            </Row>
         </div>
-        <h1> {status} </h1>
+        {/* <h1> {status} </h1> */}
             {/* <button onClick={onOnclickHandler}>Click Here</button> */}
-          <Produkts /> 
+          {/* <Produkts />  */}
         </div>
     )
 }
