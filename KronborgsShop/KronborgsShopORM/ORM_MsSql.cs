@@ -461,7 +461,7 @@ namespace KronborgsShopORM
                     product = new Product(Convert.ToInt32(reader["ProduktID"]))
                     {
                         Name = reader["ProduktNavn"].ToString(),
-                        Price = Convert.ToDouble(reader["Prise"])
+                        Price = Convert.ToInt32(reader["Prise"])
                     };
                     i++;
                 }
@@ -500,7 +500,7 @@ namespace KronborgsShopORM
                     products.Add(new Product(Convert.ToInt32(reader["ProduktID"]))
                     {
                         Name = reader["ProduktNavn"].ToString(),
-                        Price = Convert.ToDouble(reader["Prise"])
+                        Price = Convert.ToInt32(reader["Prise"])
                     });
                     i++;
                 }

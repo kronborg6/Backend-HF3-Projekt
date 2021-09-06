@@ -1,14 +1,12 @@
-import React, { useState, useEffect } from 'react';
-import { Table, Button, Input, InputGroup, InputGroupAddon, InputGroupText, Container, Card, Row, Col } from 'reactstrap';
+import React, { useState } from 'react';
+import { Table, Button, Input, InputGroup, InputGroupAddon, InputGroupText, Card, Row, Col } from 'reactstrap';
 
 // import produkts list
-import Produkts from './Produkts';
-import ProduktDelete from './ProduktDelete';
 
 function Produkt() {
     const [produkt, setBooks] = useState('');
     const [id, setID] = useState();
-    const IDInput = React.createRef();
+    // const IDInput = React.createRef();
 
     async function getData() {
       
@@ -20,12 +18,12 @@ function Produkt() {
     }
 
 
-    const onOnclickHandler = () => {
-      // setID(IDInput.current.value);
-      // delay(500);
-      getData();
+    // const onOnclickHandler = () => {
+    //   // setID(IDInput.current.value);
+    //   // delay(500);
+    //   getData();
 
-    };
+    // };
 
 
     // if (id) {

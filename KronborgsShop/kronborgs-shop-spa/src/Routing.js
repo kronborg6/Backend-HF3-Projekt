@@ -3,16 +3,17 @@ import { Route } from 'react-router';
 import { Layout } from './Layout';
 
 //Side
-import Home from './components/Home'
+// import Home from './components/Home'
 import Header from './components/Header';
-import Produkt from './components/Produkt/Produkt';
+// import Produkt from './components/Produkt/Produkt';
 import Produkts from './components/Produkt/Produkts';
 import MyComponent from './components/ApiTest/MyComponent';
 import Member from './components/Member/Member';
 import Adresses from './components/Adresse/Adresses';
 import ProduktDelete from './components/Produkt/ProduktDelete';
-import MainProdukt from './components/Produkt/MainProdukt';
+import MainProdukt from './components/Produkt/MMainProdukt';
 import ProduktPost from './components/Produkt/ProduktPost';
+import ProduktPut from './components/Produkt/ProduktPut';
 
 
 
@@ -20,7 +21,7 @@ const Routing = () => {
     return (
         <Layout>
           <Route exact path='/' component={MainProdukt} />
-          <Route path='/Produkt' component={Produkt} />
+          <Route path='/Opdate' component={ProduktPut} />
           <Route path='/Produkts' component={Produkts} />
           <Route path='/Header' component={Header} />
           <Route path='/Kronborg/Er/Gud' component={MyComponent} />

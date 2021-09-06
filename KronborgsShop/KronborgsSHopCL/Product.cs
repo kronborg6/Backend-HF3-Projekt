@@ -11,14 +11,14 @@ namespace KronborgsSHopCL
     {
         public int ProductID { get; set; }
         public string Name { get; set; }
-        public double Price { get; set; }
+        public int Price { get; set; }
 
         //public Product() : this(0)
         //{
 
         //}
         [JsonConstructor]
-        public Product(string name, double price)
+        public Product(string name, int price)
         {
             Name = name;
             Price = price;

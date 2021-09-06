@@ -1,13 +1,15 @@
 import React, {useState} from 'react'
 import { Button, Form, FormGroup, Label, Input, Card, Container, Row, Col } from 'reactstrap';
 
+import './ProduktStyle.css'
 
-function ProduktPost() {
+
+
+function ProduktPost(props) {
     const [data, setData] = useState({
         name: '',
         price: ''
     })
-    const [showAddTask, setShowAddTask] = useState(false)
 
     function submit(e) {
         e.preventDefault();
@@ -20,11 +22,11 @@ function ProduktPost() {
                 price: data.price
              })
         };
-        fetch('https://localhost:44363/Produkts', requestOptions)
-            .then(response => response.json())
+
+
             // .then(data => setPostId(data.id));
         // console.log(response)
-        setData('');
+        props.GetData(requestOptions);
     } 
 
     function handle(e) {
@@ -44,13 +46,13 @@ function ProduktPost() {
                 <br />
                 <Col xs="3">
                 <Card>
-                    <Form onSubmit={(e) => submit(e)}>
+                    <Form className="bg" onSubmit={(e) => submit(e)}>
                         <FormGroup>
-                            <Label for="exampleEmail">Produkt Name</Label>
+                            <Label for="ProduktName">Produkt Name</Label>
                             <Input onChange={(e) => handle(e)} id="name" value={data.name} placeholder="Produkt Name" type="text" />
                         </FormGroup>
                         <FormGroup>
-                            <Label for="examplePassword">Price</Label>
+                            <Label for="ProduktPrice">Price</Label>
                             <Input onChange={(e) => handle(e)} id="price" value={data.price} placeholder="Price" type="number" />
                         </FormGroup>
                         <br />

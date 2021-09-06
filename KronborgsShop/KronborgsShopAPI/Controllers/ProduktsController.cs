@@ -67,32 +67,32 @@ namespace KronborgsShopAPI.Controllers
         }
 
         [HttpPut]
-        public ActionResult<Product> Update(int id, string Name, int Price)
+        public ActionResult<Product> Update([FromBody] Product product)
         {
-            Product product;
+            //Product product;
 
             try
             {
-                product = ORM.EditProduct(id, Name, Price);
+                product = ORM.EditProduct(product.ProductID, product.Name, product.Price);
             }
             catch (Exception ex)
             {
                 throw new ArgumentException("Something went wrong" + ex.Message);
             }
 
-            if (product == null) return NotFound();
+            //if (product == null) return NotFound();
 
             // 200 ok 
             return Ok();
         }
 
         [HttpDelete]
-        public ActionResult Delete(int id)
+        public ActionResult Delete([FromBody] Product product)
         {
 
             try
             {
-                ORM.DeleteProduct(id);
+                ORM.DeleteProduct(product.ProductID);
             }
             catch (Exception ex)
             {

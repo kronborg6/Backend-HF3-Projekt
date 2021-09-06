@@ -24,57 +24,15 @@ const NavBarMenu = () => {
             <NavItem>
               <NavLink tag={Link} className="text-dark" to="/">Home</NavLink>
             </NavItem>
+            <NavItem>
+              <NavLink tag={Link} className="text-dark" to="/">Produkt</NavLink>
+            </NavItem>
+            <NavItem>
+              <NavLink tag={Link} className="text-dark" to="/">Member</NavLink>
+            </NavItem>
           </ul>
           <UncontrolledDropdown nav inNavbar>
-          <DropdownToggle nav caret>
-            Produks
-          </DropdownToggle>
-          <DropdownMenu right>
-            <DropdownItem>
-            {/* <NavLink tag={Link} className="text-dark" to="/Produkt">Find Produkt</NavLink> */}
-            </DropdownItem>
-            <DropdownItem>
-            {/* <NavLink tag={Link} className="text-dark" to="/Produkts">Produkts List</NavLink> */}
-            </DropdownItem>
-            <DropdownItem divider />
-            <DropdownItem>
-              Reset
-            </DropdownItem>
-          </DropdownMenu>
-        </UncontrolledDropdown>
-        <UncontrolledDropdown nav inNavbar>
-          <DropdownToggle nav caret>
-            Members
-          </DropdownToggle>
-          <DropdownMenu right>
-            <DropdownItem>
-            {/* <NavLink tag={Link} className="text-dark" to="/Produkt">Find Produkt</NavLink> */}
-            </DropdownItem>
-            <DropdownItem>
-            {/* <NavLink tag={Link} className="text-dark" to="/Members">Members List</NavLink> */}
-            </DropdownItem>
-            <DropdownItem divider />
-            <DropdownItem>
-              Reset
-            </DropdownItem>
-          </DropdownMenu>
-        </UncontrolledDropdown>
-        <UncontrolledDropdown nav inNavbar>
-          <DropdownToggle nav caret>
-            Addresse
-          </DropdownToggle>
-          <DropdownMenu right>
-            <DropdownItem>
-            {/* <NavLink tag={Link} className="text-dark" to="/Produkt">Find Produkt</NavLink> */}
-            </DropdownItem>
-            <DropdownItem>
-            {/* <NavLink tag={Link} className="text-dark" to="/Adresses">Adresses List</NavLink> */}
-            </DropdownItem>
-            <DropdownItem divider />
-            <DropdownItem>
-              Reset
-            </DropdownItem>
-          </DropdownMenu>
+          
         </UncontrolledDropdown>
         </Nav>
         </Collapse>
